@@ -1,5 +1,5 @@
-using UnityEditor.UI;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMotor : MonoBehaviour
 {
@@ -23,10 +23,9 @@ public class PlayerMotor : MonoBehaviour
     {
         Vector3 moveDirection = Vector3.zero;
         moveDirection.x = input.x;
-        moveDirection.y = input.y;
+        moveDirection.z = input.y;
         controller.Move(transform.TransformDirection(moveDirection) * speed * Time.deltaTime);
         playerVelocity.y += gravity * Time.deltaTime;
         controller.Move(playerVelocity  * Time.deltaTime);
-        Debug.Log(playerVelocity.y);
     }
 }

@@ -4,28 +4,28 @@ using UnityEngine.InputSystem;
 public class InputManager : MonoBehaviour
 {
     private PlayerInput playerInput;
-    private PlayerInput.OnfootActions onfoot;
+    private PlayerInput.OnfootActions onFoot;
 
     private PlayerMotor motor;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
         playerInput = new PlayerInput();
-        onfoot = playerInput.Onfoot;
+        onFoot = playerInput.Onfoot;
         motor = GetComponent<PlayerMotor>();
     }
 
     // Update is called once per frame
-    void FixUpdate()
+    void FixedUpdate()
     {
-        motor.ProcessMove(onfoot.Movement.ReadValue<Vector2>()); 
+        motor.ProcessMove(onFoot.Movement.ReadValue<Vector2>()); 
     }
     private void OnEnable()
     {
-        onfoot.Enable();
+        onFoot.Enable();
     }
     private void OnDisable()
     {
-        onfoot.Disable();
+        onFoot.Disable();
     }
 }
