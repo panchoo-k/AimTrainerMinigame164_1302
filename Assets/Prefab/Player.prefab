@@ -151,6 +151,7 @@ GameObject:
   - component: {fileID: 705188065837731202}
   - component: {fileID: 2903135341848519116}
   - component: {fileID: 6050071363788750945}
+  - component: {fileID: 3465151256879031994}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -280,4 +281,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e18485059dca2344785e9d5c333706d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMotor
+  gravity: -9.8
   speed: 5
+  jumpHeight: 1.5
+--- !u!114 &3465151256879031994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6954807890033247393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cec2a86caf448f46b1cb09f917930da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TargetShooter
