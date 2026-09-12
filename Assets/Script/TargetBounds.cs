@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class TargetBounds : MonoBehaviour
@@ -14,7 +13,7 @@ public class TargetBounds : MonoBehaviour
 
     public Vector3 GetRandomPosition()
     {
-        Vector3 center  = col.center + transform.position;
+        Vector3 center = col.center + transform.position;
 
         float minx = center.x - col.size.x / 2f;
         float maxX = center.x + col.size.x / 2f;
@@ -32,5 +31,5 @@ public class TargetBounds : MonoBehaviour
         Vector3 randomPosition = new Vector3(randomX, randomY, randomZ);
 
         return randomPosition;
-
+    }
 }
