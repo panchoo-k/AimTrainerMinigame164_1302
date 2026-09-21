@@ -8,8 +8,12 @@ public class GameManager : MonoBehaviour
     [Header("Game Settings")]
     [SerializeField] private float gameTime = 60f;
 
-    [Header("Training UI")]
+    [Header("Aim Trainer")]
+    [SerializeField] private GameObject targetHolder;
     [SerializeField] private GameObject trainingHUD;
+
+    [Header("Result Board")]
+    [SerializeField] private ResultBoard resultBoard;
 
     [Header("UI")]
     [SerializeField] private TMP_Text scoreText;
@@ -39,6 +43,7 @@ public class GameManager : MonoBehaviour
     {
         gameActive = false;
 
+        targetHolder.SetActive(false);
         trainingHUD.SetActive(false);
     }
 
@@ -68,6 +73,7 @@ public class GameManager : MonoBehaviour
         timeRemaining = gameTime;
         gameActive = true;
 
+        targetHolder.SetActive(true);
         trainingHUD.SetActive(true);
 
         UpdateUI();
@@ -125,8 +131,16 @@ public class GameManager : MonoBehaviour
     {
         gameActive = false;
 
+        targetHolder.SetActive(false);
         UpdateUI();
         trainingHUD.SetActive(false);
+
+        resultBoard.ShowResults(
+            score,
+            hits,
+            misses,
+            GetAccuracy()
+        );
 
         Debug.Log("GAME OVER!");
         Debug.Log("Final Score: " + score);
