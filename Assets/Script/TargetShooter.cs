@@ -6,7 +6,12 @@ public class TargetShooter : MonoBehaviour
 
     public void Shoot()
     {
-        Ray ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f));
+        if (!GameManager.Instance.GameActive)
+            return;
+
+        Ray ray = cam.ViewportPointToRay(
+            new Vector3(0.5f, 0.5f)
+        );
 
         if (Physics.Raycast(ray, out RaycastHit hit))
         {
@@ -14,8 +19,14 @@ public class TargetShooter : MonoBehaviour
 
             if (target != null)
             {
+                GameManager.Instance.RegisterHit();
+
                 target.Hit();
+
+                return;
             }
         }
+
+        GameManager.Instance.RegisterMiss();
     }
 }
