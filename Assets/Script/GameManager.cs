@@ -1,5 +1,7 @@
+using System.Collections;
 using UnityEngine;
 using TMPro;
+using Unity.VisualScripting;
 
 public class GameManager : MonoBehaviour
 {
@@ -20,6 +22,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TMP_Text timerText;
     [SerializeField] private TMP_Text accuracyText;
     [SerializeField] private HitFeedback hitFeedback;
+    [SerializeField] private TMP_Text countdownText;
 
     private float timeRemaining;
 
@@ -29,10 +32,13 @@ public class GameManager : MonoBehaviour
     private int totalShots;
 
     private bool gameActive;
+    private bool countdownActive;
 
     public float TimeRemaining => timeRemaining;
     public int Score => score;
     public bool GameActive => gameActive;
+
+    public bool CountdownActive => countdownActive;
 
     private void Awake()
     {
@@ -45,6 +51,7 @@ public class GameManager : MonoBehaviour
 
         targetHolder.SetActive(false);
         trainingHUD.SetActive(false);
+        countdownText.gameObject.SetActive(false);
     }
 
     private void Update()
@@ -79,6 +86,37 @@ public class GameManager : MonoBehaviour
         UpdateUI();
 
         Debug.Log("GAME START!");
+    }
+    public void StartCountdown()
+    {
+        if (gameActive || countdownActive)
+            return;
+
+        StartCoroutine(CountdownRoutine());
+    }
+    private IEnumerator CountdownRoutine()
+    {
+        countdownActive = true;
+
+        countdownText.gameObject.SetActive(true);
+
+        countdownText.text = "3";
+        yield return new WaitForSeconds(1f);
+
+        countdownText.text = "2";
+        yield return new WaitForSeconds(1f);
+
+        countdownText.text = "1";
+        yield return new WaitForSeconds(1f);
+
+        countdownText.text = "GO!";
+        yield return new WaitForSeconds(0.5f);
+
+        countdownText.gameObject.SetActive(false);
+
+        countdownActive = false;
+
+        StartGame();
     }
 
     public void RegisterHit()

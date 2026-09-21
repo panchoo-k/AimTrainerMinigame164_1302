@@ -32,14 +32,17 @@ public class PlayerInteract : MonoBehaviour
 
             if (interactable != null)
             {
-                currentInteractable = interactable;
+                string message = interactable.GetInteractText();
 
-                interactText.text =
-                    interactable.GetInteractText();
+                if (!string.IsNullOrEmpty(message))
+                {
+                    currentInteractable = interactable;
 
-                interactText.gameObject.SetActive(true);
+                    interactText.text = message;
+                    interactText.gameObject.SetActive(true);
 
-                return;
+                    return;
+                }
             }
         }
 
