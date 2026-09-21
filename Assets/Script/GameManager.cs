@@ -8,6 +8,9 @@ public class GameManager : MonoBehaviour
     [Header("Game Settings")]
     [SerializeField] private float gameTime = 60f;
 
+    [Header("Training UI")]
+    [SerializeField] private GameObject trainingHUD;
+
     [Header("UI")]
     [SerializeField] private TMP_Text scoreText;
     [SerializeField] private TMP_Text timerText;
@@ -34,7 +37,9 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        StartGame();
+        gameActive = false;
+
+        trainingHUD.SetActive(false);
     }
 
     private void Update()
@@ -62,6 +67,8 @@ public class GameManager : MonoBehaviour
 
         timeRemaining = gameTime;
         gameActive = true;
+
+        trainingHUD.SetActive(true);
 
         UpdateUI();
 
@@ -119,6 +126,7 @@ public class GameManager : MonoBehaviour
         gameActive = false;
 
         UpdateUI();
+        trainingHUD.SetActive(false);
 
         Debug.Log("GAME OVER!");
         Debug.Log("Final Score: " + score);
