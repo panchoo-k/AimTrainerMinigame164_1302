@@ -37,6 +37,22 @@ public class SettingsManager : MonoBehaviour
         PlayerPrefs.Save();
     }
 
+    public void SetAimTrainerTimeFromDropdown(int option)
+    {
+        if (option == 0)
+        {
+            SetAimTrainerTime(30f);
+        }
+        else if (option == 1)
+        {
+            SetAimTrainerTime(60f);
+        }
+        else if (option == 2)
+        {
+            SetAimTrainerTime(90f);
+        }
+    }
+
     public void SetVolume(float value)
     {
         Volume = value;

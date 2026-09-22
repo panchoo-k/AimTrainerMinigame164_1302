@@ -77,7 +77,15 @@ public class GameManager : MonoBehaviour
         misses = 0;
         totalShots = 0;
 
-        timeRemaining = gameTime;
+        if (SettingsManager.Instance != null)
+        {
+            timeRemaining = SettingsManager.Instance.AimTrainerTime;
+        }
+        else
+        {
+            timeRemaining = gameTime;
+        }
+
         gameActive = true;
 
         targetHolder.SetActive(true);

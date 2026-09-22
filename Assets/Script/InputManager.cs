@@ -10,6 +10,7 @@ public class InputManager : MonoBehaviour
     private PlayerLook look;
     private TargetShooter shooter;
     private PlayerInteract playerInteract;
+    private PauseMenu pauseMenu;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
@@ -27,7 +28,11 @@ public class InputManager : MonoBehaviour
 
         playerInteract = GetComponent<PlayerInteract>();
 
+        pauseMenu = FindFirstObjectByType<PauseMenu>();
+
         onFoot.Interact.performed += ctx => playerInteract.Interact();
+
+        onFoot.Pause.performed += ctx => pauseMenu.TogglePause();
     }
 
     // Update is called once per frame
