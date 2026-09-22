@@ -724,6 +724,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 39352253}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!120 &59546514 stripped
+LineRenderer:
+  m_CorrespondingSourceObject: {fileID: 7119907862112843173, guid: 0b65dd6227ce55e48904c7f70bc0c218, type: 3}
+  m_PrefabInstance: {fileID: 1464559445}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &81971854
 GameObject:
   m_ObjectHideFlags: 0
@@ -3771,33 +3776,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7768274307905237597, guid: 0b65dd6227ce55e48904c7f70bc0c218, type: 3}
   m_PrefabInstance: {fileID: 1464559445}
   m_PrefabAsset: {fileID: 0}
---- !u!54 &489716857
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 489716856}
-  serializedVersion: 5
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!65 &489716858
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11519,9 +11497,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7768274307905237597, guid: 0b65dd6227ce55e48904c7f70bc0c218, type: 3}
       insertIndex: -1
       addedObject: {fileID: 489716858}
-    - targetCorrespondingSourceObject: {fileID: 7768274307905237597, guid: 0b65dd6227ce55e48904c7f70bc0c218, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 489716857}
   m_SourcePrefab: {fileID: 100100000, guid: 0b65dd6227ce55e48904c7f70bc0c218, type: 3}
 --- !u!4 &1464559446 stripped
 Transform:
@@ -12142,6 +12117,14 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 1711558270}
+    - target: {fileID: 3465151256879031994, guid: 84d40dbfd0da724449fc4818688088c8, type: 3}
+      propertyPath: muzzlePoint
+      value: 
+      objectReference: {fileID: 1464559446}
+    - target: {fileID: 3465151256879031994, guid: 84d40dbfd0da724449fc4818688088c8, type: 3}
+      propertyPath: bulletTracer
+      value: 
+      objectReference: {fileID: 59546514}
     - target: {fileID: 5392456663656088419, guid: 84d40dbfd0da724449fc4818688088c8, type: 3}
       propertyPath: m_Enabled
       value: 1
